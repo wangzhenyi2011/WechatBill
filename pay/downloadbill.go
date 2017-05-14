@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
-	"github.com/willxm/WechatPayGo/tool"
+	"github.com/wangzhenyi2011/WechatBill/tool"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -115,7 +115,7 @@ func Bill(w http.ResponseWriter, r *http.Request) {
 	m["nonce_str"] = clientReq.Nonce_str
 
 	clientReq.Sign = tool.WxpayCalcSign(m, "")
-	
+
 	//xml encoding
 	bytesReq, err := xml.Marshal(clientReq)
 	if err != nil {
